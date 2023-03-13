@@ -1,0 +1,47 @@
+.cards-container{
+	display: flex;
+
+}
+.card {
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+	margin-bottom: 20px;
+	padding: 20px;
+	width: 250px;
+	list-style-type: none;
+}
+
+.card-image {
+	display: block;
+	margin-bottom: 20px;
+	width: 100%;
+}
+
+.card-title {
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.card-deliver {
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	display: block;
+	color: rgb(0, 255, 106);
+}
+
+.card-price {
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.card-description {
+	margin-bottom: 10px;
+}
+.card-none{
+	display: none;
+}

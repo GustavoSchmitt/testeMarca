@@ -1,0 +1,153 @@
+
+let produtos = '{"produtos": ['+ 
+'{"imagem":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6Jb9dKcIntVwjLYC1ClftwzO-qE28aeBDjQ&usqp=CAU","nome_do_produto":"teclado mecânico","preco":309.99,"entrega_gratis":true,"promocao":"350.00","descricao":"Produto em perfeito estado, com switches Cherry MX","marca":"Ichi","condicao":"novo","categoria":"teclado"},' + 
+'{"imagem":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv6N5wTTLmU_eNwsYtb3UtQ_w8k4CaIkx7bHbNLcEds8Iezyp1BicmpMvyvCYb98fBvy8&usqp=CAU","nome_do_produto":"headset gamer","preco":149.9,"entrega_gratis":false,"promocao":false,"descricao":"Produto inovador, com cancelamento de ruído e microfone removível","marca":"Ni","condicao":"novo","categoria":"headset"},' + 
+'{"imagem":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGq4WQ_nGsq6MzfYNEOmjhpmDbnNBPXXrZJA&usqp=CAU","nome_do_produto":"jogo ninja Kiwi","preco":89.9,"entrega_gratis":true,"promocao":false,"descricao":"Produto em perfeito estado, com temática de estratégia medieval","marca":"San","condicao":"novo","categoria":"jogo"},' + 
+'{"imagem":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-z1Q1KWuHqNU_PKTA12fyqM2HtnqTC9X5kg&usqp=CAU","nome_do_produto":"mouse sem fio","preco":59.99,"entrega_gratis":true,"promocao":"80.00","descricao":"Produto em perfeito estado, com sensor óptico de alta precisão","marca":"Yon","condicao":"seminovo","categoria":"mouse"},' + 
+'{"imagem":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6Jb9dKcIntVwjLYC1ClftwzO-qE28aeBDjQ&usqp=CAU","nome_do_produto":"Teclado Gamer","preco":309.99,"entrega_gratis":true,"promocao":false,"descricao":"Produto inovador","marca":"Ichi","condicao":"Novo","categoria":"Teclado"},' + 
+'{"imagem":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv6N5wTTLmU_eNwsYtb3UtQ_w8k4CaIkx7bHbNLcEds8Iezyp1BicmpMvyvCYb98fBvy8&usqp=CAU","nome_do_produto":"Headset Bluetooth","preco":"50.00","entrega_gratis":false,"promocao":"71.00","descricao":"Produto em perfeito estado","marca":"Ni","condicao":"Seminovo","categoria":"Headset"},' + 
+'{"imagem":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGq4WQ_nGsq6MzfYNEOmjhpmDbnNBPXXrZJA&usqp=CAU","nome_do_produto":"Jogo ninja Kiwi","preco":139.9,"entrega_gratis":true,"promocao":false,"descricao":"Produto em perfeito estado","marca":"San","condicao":"Novo","categoria":"Jogo"},' + 
+'{"imagem":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-z1Q1KWuHqNU_PKTA12fyqM2HtnqTC9X5kg&usqp=CAU","nome_do_produto":"Mouse Wireless","preco":80,"entrega_gratis":false,"promocao":"120.50","descricao":"Produto inovador","marca":"Yon","condicao":"Seminovo","categoria":"Mouse"},' + 
+'{"imagem":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6Jb9dKcIntVwjLYC1ClftwzO-qE28aeBDjQ&usqp=CAU","nome_do_produto":"Teclado Mecânico","preco":499.99,"entrega_gratis":true,"promocao":false,"descricao":"Produto inovador","marca":"Ichi","condicao":"Novo","categoria":"Teclado"},'+ 
+'{"imagem":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv6N5wTTLmU_eNwsYtb3UtQ_w8k4CaIkx7bHbNLcEds8Iezyp1BicmpMvyvCYb98fBvy8&usqp=CAU","nome_do_produto":"Headset Gamer","preco":120,"entrega_gratis":false,"promocao":"145.90","descricao":"Produto inovador","marca":"Yon","condicao":"San","categoria":"Headset"}' + ']}';
+let imagem1 = ''
+
+let produtosObj=JSON.parse(produtos);
+console.log(produtosObj);
+
+function criarListaProdutos(produtos) {
+    let cardContainer = document.createElement("div");
+    cardContainer.classList.add("cards-container");
+    let listaProdutos = document.createElement('ul');
+  
+    // Loop através dos produtos do JSON
+    produtos.produtos.forEach((produto) => {
+    // Cria um elemento de lista
+        let itemLista = document.createElement('li');
+        itemLista.classList.add("card")
+        itemLista.classList.add(produto.marca)
+
+        if(produto.entrega_gratis === true){
+            itemLista.classList.add("entrega")      
+        }else{
+            itemLista.classList.add("naoEntrega")
+        }
+        if(produto.promocao != false){
+            itemLista.classList.add("promocao")
+        }else{
+            itemLista.classList.add("semPromocao")
+        }
+
+    // Cria elementos HTML para as informações do produto
+        let nomeProduto = document.createElement('h2');
+        nomeProduto.textContent = produto.nome_do_produto;
+        nomeProduto.classList.add("card-title")
+  
+        let imagemProduto = document.createElement('img');
+        imagemProduto.src = produto.imagem;
+        imagemProduto.classList.add("card-image");
+
+        let precoAntes = document.createElement("span");
+        let promocao = document.createElement("span")
+        if(produto.promocao != false){
+            precoAntes.textContent = "R$" + produto.promocao;
+            promocao.textContent =  (produto.preco / (produto.promocao / 100)).toFixed(1) + "%";
+        }
+
+        let precoProduto = document.createElement('span');
+        precoProduto.textContent = "R$ " + produto.preco;
+        precoProduto.classList.add("card-price");
+
+        let marca = document.createElement('span');
+        marca.textContent = produto.marca;
+        marca.classList.add("card-price");
+        
+        let entregaG = document.createElement('span');
+        if(produto.entrega_gratis === true){
+            entregaG.textContent = "Entrega grátis";
+            entregaG.classList.add("card-deliver")
+        }
+        let descricao = document.createElement('p');
+        descricao.textContent = produto.descricao;
+        descricao.classList.add("card-description");
+
+        // Adiciona os elementos HTML criados ao elemento de lista
+        itemLista.appendChild(nomeProduto);
+        itemLista.appendChild(imagemProduto);
+        itemLista.appendChild(precoAntes);
+        itemLista.appendChild(promocao);
+        itemLista.appendChild(precoProduto);
+        itemLista.appendChild(marca);
+        itemLista.appendChild(entregaG);
+        itemLista.appendChild(descricao)
+        
+        // Adiciona o elemento de lista à lista de produtos
+        listaProdutos.appendChild(itemLista);
+    });
+    
+    // Adiciona a lista de produtos ao corpo da página
+    cardContainer.appendChild(listaProdutos)
+    document.body.appendChild(cardContainer);
+
+}
+
+// Chama a função para criar a lista de produtos
+criarListaProdutos(produtosObj);
+
+
+// Entrega grátis
+// var checkboxes = document.querySelectorAll('input[type=checkbox]');
+// checkboxes.forEach(function(checkbox) {
+//     checkbox.addEventListener('change', function() {
+    
+//     var itens = document.querySelectorAll('.card');
+//     // percorre todos os itens e verifica se têm a classe selecionada
+//     itens.forEach(function(item) {
+//       if (checkbox.checked && !item.classList.contains(checkbox.value)) {
+//           // esconde o item se o checkbox estiver marcado e ele não tiver a classe selecionada
+//           item.style.display = 'none';
+//         } else {
+//             // mostra o item se o checkbox não estiver marcado ou ele tiver a classe selecionada
+//             item.style.display = '';
+//     }}
+//     )
+//     })
+// })
+
+const filtros = document.querySelectorAll('.filtro');
+const itens = document.querySelectorAll('.card');
+
+function filtrarItens() {
+  const classesFiltro = [];
+    console.log(classesFiltro)
+  filtros.forEach(function(filtro) {
+    if (filtro.checked) {
+      classesFiltro.push(filtro.value);
+    }
+  });
+
+  itens.forEach(function(item) {
+    const classesItem = item.classList;
+    let exibirItem = false;
+
+    classesFiltro.forEach(function(classeFiltro) {
+      if (classesItem.contains(classeFiltro)) {
+        exibirItem = true;
+      }
+    });
+
+    if (exibirItem || classesFiltro.length == 0) {
+      item.style.display = 'block';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+}
+
+filtros.forEach(function(filtro) {
+  filtro.addEventListener('change', filtrarItens);
+});
+
+
+
+document.querySelector("#abacate").style.color = "blue"
