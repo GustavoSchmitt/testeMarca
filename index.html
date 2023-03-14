@@ -8,17 +8,41 @@
 <body>
     <form id="filtro-form">
     </form>
-
-    <input class="filtro" id="bt_entrega" type="checkbox" name="entrega" value="entrega"> Entrega Grátis
-    <input class="filtro" id="bt_promocao" type="checkbox" name="promocao" value="promocao"> Promoção
-    <div>Marcas
-        <input class="filtro" id="bt_marca" type="checkbox" name="marca" value="Ichi"> Ichi
-        <input class="filtro" id="bt_marca" type="checkbox" name="marca" value="Ni"> Ni
-        <input class="filtro" id="bt_marca" type="checkbox" name="marca" value="San"> San
-        <input class="filtro" id="bt_marca" type="checkbox" name="marca" value="Yon"> Yon
+    <label for="pesquisa">Pesquisar
+        <input onkeyup="filtrarPesquisa()" type="text" class="pesquisa" name="pesquisa" id="pesquisa">
+        
+    </label> <br>
+    <input onchange="filtrarEntrega()" class="entregas" type="checkbox" value="entrega"> Entrega Grátis
+    <br>
+    <input onchange="filtrarPromocao()" class="promocao" type="checkbox" value="promocao"> Promoção
+    <div>
+     <p>Marcas</p>
+        <input onchange="filtrarItens();" class="marca" type="checkbox" value="Ichi"> Ichi
+        <input onchange="filtrarItens();" class="marca" type="checkbox" value="Ni"> Ni
+        <input onchange="filtrarItens();" class="marca" type="checkbox" value="San"> San
+        <input onchange="filtrarItens();" class="marca" type="checkbox" value="Yon"> Yon
+    </div>
+    <div>
+        <p>Condição</p>
+        <input onchange="filtrarCondicao();" class="condicao" type="checkbox" value="Novo"> Novo
+        <input onchange="filtrarCondicao();" class="condicao" type="checkbox" value="Seminovo"> Semi
+    </div>
+    <div>
+        <p>
+            Categoria
+        </p>
+        <input onchange="filtrarCategoria();" class="categorias" type="checkbox" value="Teclado"> Teclado
+        <input onchange="filtrarCategoria();" class="categorias" type="checkbox" value="Mouse"> Mouse
+        <input onchange="filtrarCategoria();" class="categorias" type="checkbox" value="Headset"> Headset
+        <input onchange="filtrarCategoria();" class="categorias" type="checkbox" value="Jogo"> Jogo
+    </div>
+    <div>
+        <p>Preço</p>
+        <input onchange="filtrarPreco();" type="number" class="min" id="min" value="0">
+        <span>a</span>
+        <input onchange="filtrarPreco();" type="number" class="max" id="min" value="2000">
     </div>
     <div id="cards-container"></div>
-    <p id="abacate">aaaaaaaaaaaa</p>
     <script src="script.js"></script>
 </body>
 </html>
