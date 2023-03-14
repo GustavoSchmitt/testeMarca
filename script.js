@@ -128,7 +128,7 @@ const precoMin = document.querySelector('.min');
 const precoMax = document.querySelector('.max');
 const itens = document.querySelectorAll('.card');
 const itensPreco = document.querySelectorAll('.card-price');
-const itensPesquisa = document.querySelectorAll('.card-description');
+const itensPesquisa = document.querySelectorAll('.card-title');
 const pesquisa = document.querySelector('.pesquisa')
 
 const marcaTodos = document.querySelectorAll('input[type=checkbox]');
