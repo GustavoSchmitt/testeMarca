@@ -19,12 +19,15 @@ function criarListaProdutos(produtos) {
     let cardContainer = document.createElement("div");
     cardContainer.classList.add("cards-container");
     let listaProdutos = document.createElement('ul');
+    listaProdutos.classList.add("row")
   
     // Loop através dos produtos do JSON
     produtos.produtos.forEach((produto) => {
     // Cria um elemento de lista
         let itemLista = document.createElement('li');
         itemLista.classList.add("card")
+        itemLista.classList.add("col-3")
+        itemLista.classList.add("ms-5")
         itemLista.classList.add(produto.marca)
         itemLista.classList.add(produto.condicao)
         itemLista.classList.add(produto.categoria)
@@ -44,6 +47,12 @@ function criarListaProdutos(produtos) {
         let nomeProduto = document.createElement('h2');
         nomeProduto.textContent = produto.nome_do_produto;
         nomeProduto.classList.add("card-title")
+
+        let novoProduto = document.createElement('span')
+        if(produto.condicao == "Novo"){
+          novoProduto.textContent = produto.condicao 
+        }
+        novoProduto.classList.add('card-new')
   
         let imagemProduto = document.createElement('img');
         imagemProduto.src = produto.imagem;
@@ -78,6 +87,7 @@ function criarListaProdutos(produtos) {
 
         // Adiciona os elementos HTML criados ao elemento de lista
         itemLista.appendChild(nomeProduto);
+        itemLista.appendChild(novoProduto);
         itemLista.appendChild(imagemProduto);
         itemLista.appendChild(precoAntes);
         itemLista.appendChild(promocao);
@@ -91,8 +101,9 @@ function criarListaProdutos(produtos) {
     });
     
     // Adiciona a lista de produtos ao corpo da página
-    cardContainer.appendChild(listaProdutos)
-    document.body.appendChild(cardContainer);
+    let cards = document.querySelector("#cards-container")
+    cardContainer.appendChild(listaProdutos);
+    cards.appendChild(cardContainer);
 
 }
 
@@ -150,7 +161,7 @@ function filtrarPesquisa(){
   console.log(pesquisa.value.toLowerCase())
   itens.forEach(function(item){
     if(true == classesPesquisa[a].toLowerCase().includes(pesquisa.value.toLowerCase())){
-      item.style.display = 'block';
+      item.style.display = 'flex';
     } else {
       item.style.display = 'none';
     }
@@ -169,7 +180,7 @@ function filtrarPreco(){
   
   itens.forEach(function(item){
     if( precoMax.value >= classesPreco[a] && classesPreco[a] >= precoMin.value){
-      item.style.display = 'block';
+      item.style.display = 'flex';
     } else {
       item.style.display = 'none';
     }
@@ -207,7 +218,7 @@ function filtrarCategoria() {
     });
 
     if (classesCategoria.length == 0 || exibirItem) {
-      item.style.display = 'block';
+      item.style.display = 'flex';
     } else {
       item.style.display = 'none';
     }
@@ -244,7 +255,7 @@ function filtrarCondicao() {
     });
 
     if (classesCondicao.length == 0 || exibirItem) {
-      item.style.display = 'block';
+      item.style.display = 'flex';
     } else {
       item.style.display = 'none';
     }
@@ -280,7 +291,7 @@ function filtrarPromocao() {
     });
 
     if (classesPromocao.length == 0 || exibirItem) {
-      item.style.display = 'block';
+      item.style.display = 'flex';
     } else {
       item.style.display = 'none';
     }
@@ -312,7 +323,7 @@ itens.forEach(function(item) {
   });
   
   if (classesEntrega.length == 0 || exibirItem) {
-    item.style.display = 'block';
+    item.style.display = 'flex';
   } else {
     item.style.display = 'none';
   }
@@ -346,7 +357,7 @@ function filtrarItens() {
     });
 
     if (classesMarca.length == 0 || exibirItem) {
-      item.style.display = 'block';
+      item.style.display = 'flex';
     } else {
       item.style.display = 'none';
     }

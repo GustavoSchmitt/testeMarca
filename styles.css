@@ -50,3 +50,7 @@
 .card-none{
 	display: none;
 }
+.card-new{
+	color: rgb(0, 255, 106);
+	margin-left: auto;
+}
