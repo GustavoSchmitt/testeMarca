@@ -34,32 +34,73 @@
                     <input onchange="filtrarEntrega()" class="entregas" type="checkbox" value="entrega"> Entrega Grátis
                     <br>
                     <input onchange="filtrarPromocao()" class="promocao" type="checkbox" value="promocao"> Promoção
-                    <div>
-                     <p>Marcas</p>
-                        <input onchange="filtrarItens();" class="marca" type="checkbox" value="Ichi"> Ichi
-                        <input onchange="filtrarItens();" class="marca" type="checkbox" value="Ni"> Ni
-                        <input onchange="filtrarItens();" class="marca" type="checkbox" value="San"> San
-                        <input onchange="filtrarItens();" class="marca" type="checkbox" value="Yon"> Yon
+                    <div class="mt-3">
+                     <h5>Marcas</h5>
+                     <div class="d-flex flex-column">
+                        <label for="Ichi">
+                            <input onchange="filtrarItens();" class="marca" type="checkbox" value="Ichi" id="Ichi"> Ichi
+                        </label>
+                        <label for="Ni">
+                            <input onchange="filtrarItens();" class="marca" type="checkbox" value="Ni" id="Ni"> Ni
+                        </label>
+                        <label for="San">
+                            <input onchange="filtrarItens();" class="marca" type="checkbox" value="San" id="San"> San
+                        </label>
+                        <label for="Yon">
+                            <input onchange="filtrarItens();" class="marca" type="checkbox" value="Yon" id="Yon"> Yon
+                        </label>
+                     </div>
                     </div>
-                    <div>
-                        <p>Condição</p>
-                        <input onchange="filtrarCondicao();" class="condicao" type="checkbox" value="Novo"> Novo
-                        <input onchange="filtrarCondicao();" class="condicao" type="checkbox" value="Seminovo"> Semi
+                    <div class="mt-3">
+                        <h5>Condição</h5>
+                        <div class="d-flex flex-column">
+                            <label for="Novo">
+                                <input onchange="filtrarCondicao();" class="condicao" type="checkbox" value="Novo" id="Novo"> Novo
+                            </label>
+                            <label for="Seminovo">
+                                <input onchange="filtrarCondicao();" class="condicao" type="checkbox" value="Seminovo" id="Seminovo"> Semi
+    
+                            </label>
+                        </div>
                     </div>
-                    <div>
-                        <p>
+                    <div class="mt-3">
+                        <h5>
                             Categoria
-                        </p>
-                        <input onchange="filtrarCategoria();" class="categorias" type="checkbox" value="Teclado"> Teclado
-                        <input onchange="filtrarCategoria();" class="categorias" type="checkbox" value="Mouse"> Mouse
-                        <input onchange="filtrarCategoria();" class="categorias" type="checkbox" value="Headset"> Headset
-                        <input onchange="filtrarCategoria();" class="categorias" type="checkbox" value="Jogo"> Jogo
+                        </h5> 
+                        <div class="d-flex flex-column">
+                            <label for="Teclado">
+                                <input onchange="filtrarCategoria();" class="categorias" type="checkbox" value="Teclado" id="Teclado"> Teclado
+                            </label>
+                            
+                            
+                            <label for="Mouse">
+                                <input onchange="filtrarCategoria();" class="categorias" type="checkbox" value="Mouse" id="Mouse"> Mouse
+                            </label>
+                            
+                            <label for="Headset">
+                                <input onchange="filtrarCategoria();" class="categorias" type="checkbox" value="Headset" id="Headset"> Headset
+                            </label>
+                            
+                            <label for="Jogo"> 
+                                <input onchange="filtrarCategoria();" class="categorias" type="checkbox" value="Jogo" id="Jogo"> Jogo
+                            </label>
+
+                        </div>
+                        
                     </div>
-                    <div>
-                        <p>Preço</p>
-                        <input onchange="filtrarPreco();" type="number" class="min" id="min" value="0">
-                        <span>a</span>
-                        <input onchange="filtrarPreco();" type="number" class="max" id="min" value="2000">
+                    <div class="mt-3 bg-primary bg-opacity-75 py-4 px-4">
+                        <h5>Preço</h5>
+                        <div class="d-flex flex-column">
+                            <label for="min" style="font-size: 14px;">
+                                Mínimo
+                            </label>
+                                <input onchange="filtrarPreco();" type="number" class="min" id="min" value="0">
+                                <label for="max" style="font-size: 14px;">
+                                    Máximo
+                                </label>
+                            <input onchange="filtrarPreco();" type="number" class="max" id="min" value="2000">
+
+                        </div>
                     </div>
                 </div>
                 </div>

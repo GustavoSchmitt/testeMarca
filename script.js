@@ -26,8 +26,7 @@ function criarListaProdutos(produtos) {
     // Cria um elemento de lista
         let itemLista = document.createElement('li');
         itemLista.classList.add("card")
-        itemLista.classList.add("col-3")
-        itemLista.classList.add("ms-5")
+        itemLista.classList.add("col-4")
         itemLista.classList.add(produto.marca)
         itemLista.classList.add(produto.condicao)
         itemLista.classList.add(produto.categoria)
@@ -61,16 +60,27 @@ function criarListaProdutos(produtos) {
         let precoAntes = document.createElement("span");
         let promocao = document.createElement("span")
         if(produto.promocao != false){
-            precoAntes.textContent = "R$" + produto.promocao;
-            promocao.textContent =  (produto.preco / (produto.promocao / 100)).toFixed(1) + "%";
+            precoAntes.textContent = "R$ " + produto.promocao;
+            promocao.classList.add('card-promocao')
+            promocao.textContent =  ( 100 - (produto.preco / (produto.promocao / 100))).toFixed(1) + "% OFF";
         }
-
+        precoAntes.classList.add('card-old-price')
+        
+        
         let rs = document.createElement('span');
         rs.textContent = "R$ " ;
+        rs.classList.add('rs')
 
         let precoProduto = document.createElement('span');
         precoProduto.textContent = produto.preco;
         precoProduto.classList.add("card-price");
+        //precoProduto.classList.add('col-6')
+        
+        let divPreco = document.createElement('div');
+        divPreco.classList.add('divPreco')
+        divPreco.appendChild(rs)
+        divPreco.appendChild(precoProduto);
+        divPreco.appendChild(promocao)
 
         let marca = document.createElement('span');
         marca.textContent = produto.marca;
@@ -90,11 +100,11 @@ function criarListaProdutos(produtos) {
         itemLista.appendChild(novoProduto);
         itemLista.appendChild(imagemProduto);
         itemLista.appendChild(precoAntes);
-        itemLista.appendChild(promocao);
-        itemLista.appendChild(precoProduto);
+        
+        itemLista.appendChild(divPreco);
         itemLista.appendChild(marca);
-        itemLista.appendChild(entregaG);
         itemLista.appendChild(descricao)
+        itemLista.appendChild(entregaG);
         
         // Adiciona o elemento de lista à lista de produtos
         listaProdutos.appendChild(itemLista);
