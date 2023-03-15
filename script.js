@@ -194,25 +194,117 @@ categorias.forEach(function(categoria) {
   }
 });
 
+  //-----------------------------------------  Condição  -----------------------------------------
+  // Para cada filtro
+
+  if(!condicoes.checked){
+    classesCondicao.pop()
+  }
+  condicoes.forEach(function(condicao) {
+    if (condicao.checked) {
+      classesCondicao.push(condicao.value);
+    }else{
+      classesEntrega.pop(0)
+    }
+  });
+  //-----------------------------------------  Promoção  -----------------------------------------
+  // Para cada filtro
+  if(!promocoes.checked){
+    classesPromocao.pop()
+  }
+  promocoes.forEach(function(promocao) {
+    if (promocao.checked) {
+      classesPromocao.push(promocao.value);
+    }
+  });
+
+  //-----------------------------------------  Entrega  -----------------------------------------
+  if(!entregas.checked){
+    classesEntrega.pop()
+  }
+  entregas.forEach(function(entrega) {
+    if (entrega.checked) {
+      classesEntrega.push(entrega.value);
+    }
+  });
+
+  //-----------------------------------------  Marca  -----------------------------------------
+  if(!marcas.checked){
+    classesMarca.pop()
+  }
+  marcas.forEach(function(marca) {
+    if (marca.checked) {
+      classesMarca.push(marca.value);
+    }
+  });
 
   //-----------------------------------------  Verificação  -----------------------------------------
   itens.forEach(function(item){
-    const classesItem = item.classList;
-    let exibirItem = false;
     
+    
+    // Categoria  -----------------------------------
+    const classesItemCategoria = item.classList;
+    let exibirItemCategoria = false;
 
-    // Validação 
     classesCategoria.forEach(function(classeFiltro) {
-      if (classesItem.contains(classeFiltro)) {
-        exibirItem = true;
+      if (classesItemCategoria.contains(classeFiltro)) {
+        exibirItemCategoria = true;
       }
     });
-  
+    //------------------------------------------------
 
+    // Condição  -----------------------------------
+    const classesItemCondicao = item.classList;
+    let exibirItemCondicao = false;
     
+    classesCondicao.forEach(function(classeFiltro) {
+      if (classesItemCondicao.contains(classeFiltro)) {
+        exibirItemCondicao = true;
+      }
+    });
+    //------------------------------------------------
+
+    // Promoção  -----------------------------------
+    const classesItemPromo = item.classList;
+    let exibirItemPromo = false;
+   
+    classesPromocao.forEach(function(classeFiltro) {
+      if (classesItemPromo.contains(classeFiltro)) {
+        exibirItemPromo = true;
+      }
+    });
+    //------------------------------------------------
+    // Entrega  -----------------------------------
+    const classesItemEntrega = item.classList;
+    let exibirItemEntrega = false;
+    
+
+    classesEntrega.forEach(function(classeFiltro) {
+      if (classesItemEntrega.contains(classeFiltro)) {
+        exibirItemEntrega = true;
+      }
+    });
+    //------------------------------------------------
+    // Marca  -----------------------------------
+    const classesItemMarca = item.classList;
+    let exibirItemMarca = false;
+    classesMarca.forEach(function(classeFiltro) {
+      if (classesItemMarca.contains(classeFiltro)) {
+        exibirItemMarca = true;
+      }
+    });
+
+
+
+    //------------------------------------------------
+
     if(true == classesPesquisa[a].toLowerCase().includes(pesquisa.value.toLowerCase()) &&
     precoMax.value >= classesPreco[b] && classesPreco[b] >= precoMin.value &&
-    (exibirItem || classesCategoria.length == 0 )
+    (exibirItemCategoria || classesCategoria.length == 0 ) &&
+    (classesCondicao.length == 0 || exibirItemCondicao) &&
+    (classesPromocao.length == 0 || exibirItemPromo) &&
+    (classesEntrega.length == 0 || exibirItemEntrega) &&
+    (classesMarca.length == 0 || exibirItemMarca)
     ){
       item.style.display = 'flex';
     } else {
@@ -224,210 +316,3 @@ categorias.forEach(function(categoria) {
 
   
 }
-
-// function filtrarPreco(){
-  
-//   itensPreco.forEach(function(itemPreco){
-//     classesPreco.push(parseInt(itemPreco.textContent))
-//     console.log(classesPreco)
-//   })
-  
-  
-//   itens.forEach(function(item){
-//     if( precoMax.value >= classesPreco[b] && classesPreco[b] >= precoMin.value){
-//       item.style.display = 'flex';
-//     } else {
-//       item.style.display = 'none';
-//     }
-//     b = b + 1;
-//       // classesPreco.forEach(function(classesPrecos){
-//       // })
-
-//     })
-// }
-
-
-// function filtrarCategoria() {
-//   // Para cada filtro
-//   if(!categorias.checked){
-//     classesCategoria.pop()
-//   }
-//   categorias.forEach(function(categoria) {
-//     if (categoria.checked) {
-//       classesCategoria.push(categoria.value);
-//     }
-//   });
-
-
-//   // Cada card
-//   itens.forEach(function(item) {
-//     const classesItem = item.classList;
-//     let exibirItem = false;
-    
-
-//     // Validação 
-//     classesCategoria.forEach(function(classeFiltro) {
-//       if (classesItem.contains(classeFiltro)) {
-//         exibirItem = true;
-//       }
-//     });
-
-//     if (classesCategoria.length == 0 || exibirItem) {
-//       item.style.display = 'flex';
-//     } else {
-//       item.style.display = 'none';
-//     }
-    
-    
-//   });
-// }
-
-function filtrarCondicao() {
-  // Para cada filtro
-  
-    if(!condicoes.checked){
-      classesCondicao.pop()
-    }
-  condicoes.forEach(function(condicao) {
-    if (condicao.checked) {
-      classesCondicao.push(condicao.value);
-    }else{
-      classesEntrega.pop(0)
-    }
-  });
-
-  // Cada card
-  itens.forEach(function(item) {
-    const classesItem = item.classList;
-    let exibirItem = false;
-    
-
-    // Validação 
-    classesCondicao.forEach(function(classeFiltro) {
-      if (classesItem.contains(classeFiltro)) {
-        exibirItem = true;
-      }
-    });
-
-    if (classesCondicao.length == 0 || exibirItem) {
-      item.style.display = 'flex';
-    } else {
-      item.style.display = 'none';
-    }
-    
-    
-  });
-}
-
-
-function filtrarPromocao() {
-  // Para cada filtro
-  if(!promocoes.checked){
-    classesPromocao.pop()
-  }
-  promocoes.forEach(function(promocao) {
-    if (promocao.checked) {
-      classesPromocao.push(promocao.value);
-    }
-  });
-
-
-  // Cada card
-  itens.forEach(function(item) {
-    const classesItem = item.classList;
-    let exibirItem = false;
-    
-
-    // Validação 
-    classesPromocao.forEach(function(classeFiltro) {
-      if (classesItem.contains(classeFiltro)) {
-        exibirItem = true;
-      }
-    });
-
-    if (classesPromocao.length == 0 || exibirItem) {
-      item.style.display = 'flex';
-    } else {
-      item.style.display = 'none';
-    }
-    
-    
-  });
-}
-
-
-function filtrarEntrega() {
-  if(!entregas.checked){
-    classesEntrega.pop()
-  }
-entregas.forEach(function(entrega) {
-  if (entrega.checked) {
-    classesEntrega.push(entrega.value);
-  }
-});
-
-itens.forEach(function(item) {
-  const classesItem = item.classList;
-  let exibirItem = false;
-  
-
-  classesEntrega.forEach(function(classeFiltro) {
-    if (classesItem.contains(classeFiltro)) {
-      exibirItem = true;
-    }
-  });
-  
-  if (classesEntrega.length == 0 || exibirItem) {
-    item.style.display = 'flex';
-  } else {
-    item.style.display = 'none';
-  }
-});
-}
-
-
-function filtrarItens() {
-  // Para cada filtro
-  if(!marcas.checked){
-    classesMarca.pop()
-  }
-  marcas.forEach(function(marca) {
-    if (marca.checked) {
-      classesMarca.push(marca.value);
-    }
-  });
-
-
-  // Cada card
-  itens.forEach(function(item) {
-    const classesItem = item.classList;
-    let exibirItem = false;
-    
-
-    // Validação 
-    classesMarca.forEach(function(classeFiltro) {
-      if (classesItem.contains(classeFiltro)) {
-        exibirItem = true;
-      }
-    });
-
-    if (classesMarca.length == 0 || exibirItem) {
-      item.style.display = 'flex';
-    } else {
-      item.style.display = 'none';
-    }
-    
-    
-  });
-}
-
-
-
-
-
-// marcaTodos.forEach(function(filtro) {
-//   filtro.addEventListener('change', filtrarItens);
-// });
-// entregaTodos.forEach(function(filtro) {
-//   filtro.addEventListener('change', filtrarEntrega);
-// });
