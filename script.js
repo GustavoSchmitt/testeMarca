@@ -162,60 +162,41 @@ const classesCategoria = [];
 const classesPreco = [];
 let classesPesquisa = [];
 let a = 0;
+let b = 0;
 
 function filtrarPesquisa(){
+
+  //-----------------------------------------  Pesquisa  -----------------------------------------
   a = 0;
   itensPesquisa.forEach(function(itemPesquisa){
     classesPesquisa.push(itemPesquisa.textContent)
   });
-  console.log(pesquisa.value.toLowerCase())
-  itens.forEach(function(item){
-    if(true == classesPesquisa[a].toLowerCase().includes(pesquisa.value.toLowerCase())){
-      item.style.display = 'flex';
-    } else {
-      item.style.display = 'none';
-    }
-    a = a + 1;
-  })
-}
-
-function filtrarPreco(){
-  console.log(precoMin.value, precoMax.value, classesPreco)
-  
+  //-----------------------------------------  Preço  -----------------------------------------
   itensPreco.forEach(function(itemPreco){
     classesPreco.push(parseInt(itemPreco.textContent))
-    console.log(classesPreco)
+    
   })
-  
-  
-  itens.forEach(function(item){
-    if( precoMax.value >= classesPreco[a] && classesPreco[a] >= precoMin.value){
-      item.style.display = 'flex';
-    } else {
-      item.style.display = 'none';
-    }
-    a = a + 1;
-      // classesPreco.forEach(function(classesPrecos){
-      // })
-
-    })
-}
-
-
-function filtrarCategoria() {
-  // Para cada filtro
-  if(!categorias.checked){
-    classesCategoria.pop()
+  let verifyPreco;
+  if(precoMax.value >= classesPreco[b] && classesPreco[b] >= precoMin.value){
+    verifyPreco = true
+  }else{
+    verifyPreco = false
   }
-  categorias.forEach(function(categoria) {
-    if (categoria.checked) {
-      classesCategoria.push(categoria.value);
-    }
-  });
+
+  //-----------------------------------------  Categoria  -----------------------------------------
+// Para cada filtro
+if(!categorias.checked){
+  classesCategoria.pop()
+}
+categorias.forEach(function(categoria) {
+  if (categoria.checked) {
+    classesCategoria.push(categoria.value);
+  }
+});
 
 
-  // Cada card
-  itens.forEach(function(item) {
+  //-----------------------------------------  Verificação  -----------------------------------------
+  itens.forEach(function(item){
     const classesItem = item.classList;
     let exibirItem = false;
     
@@ -226,16 +207,80 @@ function filtrarCategoria() {
         exibirItem = true;
       }
     });
+  
 
-    if (classesCategoria.length == 0 || exibirItem) {
+    
+    if(true == classesPesquisa[a].toLowerCase().includes(pesquisa.value.toLowerCase()) &&
+    precoMax.value >= classesPreco[b] && classesPreco[b] >= precoMin.value &&
+    (exibirItem || classesCategoria.length == 0 )
+    ){
       item.style.display = 'flex';
     } else {
       item.style.display = 'none';
     }
-    
-    
-  });
+    a = a + 1;
+    b = b + 1;
+  })
+
+  
 }
+
+// function filtrarPreco(){
+  
+//   itensPreco.forEach(function(itemPreco){
+//     classesPreco.push(parseInt(itemPreco.textContent))
+//     console.log(classesPreco)
+//   })
+  
+  
+//   itens.forEach(function(item){
+//     if( precoMax.value >= classesPreco[b] && classesPreco[b] >= precoMin.value){
+//       item.style.display = 'flex';
+//     } else {
+//       item.style.display = 'none';
+//     }
+//     b = b + 1;
+//       // classesPreco.forEach(function(classesPrecos){
+//       // })
+
+//     })
+// }
+
+
+// function filtrarCategoria() {
+//   // Para cada filtro
+//   if(!categorias.checked){
+//     classesCategoria.pop()
+//   }
+//   categorias.forEach(function(categoria) {
+//     if (categoria.checked) {
+//       classesCategoria.push(categoria.value);
+//     }
+//   });
+
+
+//   // Cada card
+//   itens.forEach(function(item) {
+//     const classesItem = item.classList;
+//     let exibirItem = false;
+    
+
+//     // Validação 
+//     classesCategoria.forEach(function(classeFiltro) {
+//       if (classesItem.contains(classeFiltro)) {
+//         exibirItem = true;
+//       }
+//     });
+
+//     if (classesCategoria.length == 0 || exibirItem) {
+//       item.style.display = 'flex';
+//     } else {
+//       item.style.display = 'none';
+//     }
+    
+    
+//   });
+// }
 
 function filtrarCondicao() {
   // Para cada filtro
