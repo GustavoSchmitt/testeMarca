@@ -45,42 +45,53 @@ cep.addEventListener("input", function(){
 const cards = []
 
 function removeCard(){
-    // let element = cards.find()
-    // cards.splice(element, 1)
-    let parent = this.parentNode
-    let index = cards.findIndex(e => e === parent)
-    console.log(index)
+    let index = cards.findIndex(e => e.elementP === this.parentNode)
+    console.log(this.parentNode, index)
     if(index >= 0){
-
         cards.splice(index, 1)
     }
+    renderizaCards()
 }
 
 document.querySelector('.button').addEventListener('click', (event) =>{
     event.preventDefault()
 
-    let card = document.querySelector('#card')
-    let cardText = document.createElement('p')
-    let cardContent = document.createElement('div')
+    const cardContent = document.createElement('div')
     cardContent.classList.add('cards')
-    let remove = document.createElement('span')
-    let index = cards.length + 1;
+    const index = cards.length + 1;
 
-    cardText.textContent = cep.value.slice(0, 5) + '-' + cep.value.slice(5)
-    remove.textContent = 'X'
-    remove.style.color = 'red'
-    remove.onclick = removeCard
-    cardContent.cardText = cardText
-    cardContent.remove = remove
-    cardContent.index = index
-    cards.push(cardContent)
-    cards.map(e =>{
-        card.appendChild(e)
-        e.appendChild(e.cardText)
-        e.appendChild(e.remove)})
-    console.log('a')
+
+    cards.push({
+        textCep:cep.value.slice(0, 5) + '-' + cep.value.slice(5),
+        elementP:document.createElement('p'),
+        textX:'X',
+        elementSpan:document.createElement('span'),
+        id:index
+        
+    })
+    renderizaCards()
 })
+function renderizaCards(){
+let card = document.querySelector('#card')
+card.innerHTML = ''
+    cards.map(e =>{
+        let indice = cards.findIndex(element => element === e)
+        if(indice >= 0){
+            e.elementP.textContent = e.textCep
+            e.elementSpan.textContent = e.textX
+            e.elementSpan.style.color = 'red'
+            e.elementSpan.onclick = removeCard
+            e.elementSpan.style.marginLeft = '10px'
+            e.elementP.append(e.elementSpan)
+            card.append(e.elementP)}
+        } 
+    )
+    }
 
+    
+
+        
+        
 
 
 
