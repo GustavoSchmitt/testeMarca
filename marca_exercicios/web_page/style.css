@@ -1,3 +1,110 @@
-*{
+*, body{
     font-family: 'poppins', sans-serif;
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+}
+.bodyGrid{
+    grid-template-rows: 1fr 4fr 1fr 11fr 4fr;
+    display: grid;
+    grid-template-columns: 1fr;
+    height: 100vh;
+    gap: 25px;
+
+}
+.menuGrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    width: calc(100%-60px);
+    background-color: #f8f8f8;  
+    padding: 5px;
+}
+
+.usersGrid{
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr;
+}
+
+
+/* ROLETA STYLES */
+.roulette-container {
+    display: inline-flex;
+    overflow-x: scroll;
+    width: 100vw;
+    /* height: 100px; */
+}
+.roulette-container div {
+    width: 100px;
+    height: 110px; 
+    display: grid;
+    /* grid-template-columns: auto; */
+    align-items:baseline;
+    justify-content: center;
+}
+.roulette-container p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    width: 100px; 
+    font-size: 0.9rem;
+}
+.roulette-container div img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+
+/* PESQUISA STYLES */
+.searchGrid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search{
+    padding: 0 2.5px;
+    background-color: rgb(245, 240, 240);
+    display: inline-flex;
+    border: 1.5px solid;
+    border-radius:5px;
+    width: 80%;
+}
+.search input,.search input:focus {
+    background-color: rgb(245, 240, 240);
+    border: none;
+    height: 35px;
+    width: calc(100% - 16px);
+    display: flex;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+.search i::before{
+    position: relative;
+    top: 15%;
+    left: -10%;
+}
+.search i{
+    background-color: rgb(245, 240, 240);
+    height: 25px;
+}
+
+/* CHAT STYLES */
+.chatContainer{
+    display: grid;
+    grid-template-rows: 1fr;
+    row-gap: 10px;
+}
+.chatContainer {
+    display: grid;
+   column-gap: 15px;
+   grid-template-rows: repeat(7, 1fr);
+}
+.chatContainer div {
+    display: grid;
+    grid-template-columns: auto 15fr 2fr;
+
 }

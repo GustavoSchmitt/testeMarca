@@ -1,41 +1,58 @@
-.navGrid{
+.navGrid {
 	grid-area: n;
 }
-.filtros{
+
+.filtros {
 	grid-area: l;
 }
-.cardsGrid{
+
+.cardsGrid {
 	grid-area: r;
 }
-#containerGrid{
+
+#containerGrid {
 	display: grid;
-	grid-template-columns: 25% auto;
+	/* grid-template-columns: 1fr 3fr */
+	/* grid-template-columns: 25% auto; */
+
+	grid-template-areas:
+		'n n n n'
+		'l r r r'
+		'l r r r'
+		'l r r r';
 }
-@media only screen and   (max-width:500px) {
-	#containerGrid{
-		grid-template-areas: "n n" "l l" "r r";
-		max-width:500px
+
+/* @media screen and (max-width: 500px) and (orientation: portraint) { */
+@media screen and (max-width: 720px) {
+	#containerGrid {
+		grid-template-areas:
+			'n n'
+			'l l'
+			'r r'
+			'r r';
+		/* max-width: 500px; */
 	}
-	.cards-container{
+
+	/* .cards-container {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-columns: 10rem 1fr 1fr;
+		grid-template-columns: auto auto auto;
+	} */
+}
+/* 
+@media only screen and (max-width: 5000px) {
+	#containerGrid {
+		grid-template-areas: 'n n' 'l r';
+		max-width: 5000px;
+	}
+
+	.cards-container {
 		display: grid;
 		grid-template-columns: auto auto auto;
 	}
-}
-@media only screen and  (max-width:5000px){
-
-	#containerGrid{
-		grid-template-areas: "n n" "l r ";
-		max-width:5000px
-	}
-	
-	.cards-container{
-		display: grid;
-		grid-template-columns: auto auto auto;
-	}
-}
-
-
-
+} */
 
 .card {
 	background-color: #fff;
@@ -77,12 +94,11 @@
 	font-weight: bold;
 	display: flex;
 }
-.rs{
+.rs {
 	display: flex;
 	font-size: 16px;
 	align-self: baseline;
-	margin-right:6px
-	
+	margin-right: 6px;
 }
 .card-marca {
 	font-size: 16px;
@@ -93,26 +109,26 @@
 .card-description {
 	margin-bottom: 10px;
 }
-.card-none{
+.card-none {
 	display: none;
 }
-.card-new{
+.card-new {
 	color: rgb(0, 255, 106);
 	margin-left: auto;
 }
-.card-old-price{
+.card-old-price {
 	text-decoration: line-through;
 	color: rgba(0, 0, 0, 0.445);
 	display: flex;
 	justify-content: end;
 }
-.divPreco{
+.divPreco {
 	display: flex;
 	margin-top: 5px;
 	margin-right: 15px;
-	align-items:center;
+	align-items: center;
 }
-.card-promocao{
+.card-promocao {
 	display: flex;
 	justify-content: start;
 	font-size: 12px;
