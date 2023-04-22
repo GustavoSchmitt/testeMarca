@@ -1,0 +1,34 @@
+body{
+    background-color: #162A53;
+    display: flex;
+    justify-content: center;
+}
+.flexBody{
+    width: calc(100% - 20px);
+}
+.flexBody ul{
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+.flexBody ul li{
+    display: inline;
+}
+
+.gallery{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+}
+.gallery img{
+    width: 50%;
+    width: calc(50% - 5px);
+    display: inline;
+    height: fit-content;
+}
+
+/* .gallery .img img{
+    width: calc(50% - 5px);
+    width: fit-content;
+} */

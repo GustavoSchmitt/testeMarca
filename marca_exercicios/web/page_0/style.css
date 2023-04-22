@@ -1,0 +1,56 @@
+*{
+    /* padding: 0;
+    margin: 0; */
+}
+body{
+    margin: 0;
+}
+p{
+    margin: 0;
+}
+.bodyGrid{
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+    grid-template-columns: 1fr 4fr;
+    gap: 20px;
+    background-color: rgb(232, 240, 248);
+}
+.navFlex{
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+}
+.navImage{
+    flex-grow:1;
+    display: flex;
+    align-items: center;
+    border-bottom: solid 1px #00000022;    
+    justify-content: center;
+
+}
+.navLi{
+    flex-grow:5;
+    display: flex;
+    justify-content: center;
+
+}
+.navUser{
+    flex-grow:2;
+    display: flex;
+    justify-content: center;
+}
+.navDiv{
+    width:calc(100% - 40px);
+
+}
+
+.imageRound{
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.containerFlex{
+    background-color: #ffffff;
+    display: flex;
+}
