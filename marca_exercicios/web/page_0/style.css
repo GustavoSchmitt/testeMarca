@@ -10,33 +10,38 @@ p{
 }
 .bodyGrid{
     display: grid;
-    height: 100vh;
     width: 100vw;
     grid-template-columns: 1fr 4fr;
     gap: 20px;
     background-color: rgb(232, 240, 248);
+    height: 100vh;
+
 }
+/* NAV PART */
 .navFlex{
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
-}
-.navImage{
-    flex-grow:1;
-    display: flex;
-    align-items: center;
-    border-bottom: solid 1px #00000022;    
-    justify-content: center;
+    gap: 20px;
+    border-radius: 12px;
+    margin: 20px 0 20px 20px ;
 
 }
+.navImage{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
 .navLi{
-    flex-grow:5;
+    border-top: solid 1px #00000022;    
+    flex-grow:6;
     display: flex;
     justify-content: center;
 
 }
 .navUser{
-    flex-grow:2;
+    flex-grow:3;
     display: flex;
     justify-content: center;
 }
@@ -50,7 +55,52 @@ p{
     border-radius: 50%;
     overflow: hidden;
 }
+
+/* MAIN PART */
 .containerFlex{
-    background-color: #ffffff;
+    background-color: rgb(232, 240, 248);
     display: flex;
+    flex-direction: column;
+    margin: 20px 20px 20px 0 ;
+    border-radius: 12px;
+    gap: 20px;
+}
+.searchContent{
+    flex-grow: 1;
+    background-color: #ffffff;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+}
+.searchWidth{
+    width: calc(100% - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.search{
+    display: flex;
+    gap: 20px;
+}
+.tasks{
+    flex-grow: 3;
+    background-color: #ffffff;
+    border-radius: 12px;
+
+}
+.projectsContent{
+    flex-grow: 2;
+    background-color: #ffffff;
+    border-radius: 12px;
+
+}
+.searchButton ul{
+    background-color: rgb(241, 243, 244);
+    padding: 0;
+    display: flex;
+    border-radius: 24px;
+}
+.searchButton ul li{
+    display: inline;
+    margin: 15px 30px;
 }
