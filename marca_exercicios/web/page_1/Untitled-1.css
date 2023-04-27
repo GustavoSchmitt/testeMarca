@@ -1,0 +1,17 @@
+/* clases para adicionar no body dark | light | outraqualquer */
+
+body {
+	--variable1: #323232;
+	--tamanhoElement1: 5rem;
+}
+
+body.light {
+	--variable1: #f8f8f8;
+}
+
+/*   */
+@media (max-width) {
+	body {
+		--tamanhoElement1: 3rem;
+	}
+}

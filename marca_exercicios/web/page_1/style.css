@@ -1,0 +1,20 @@
+.container {
+    column-count: 2;
+    /* column-gap: 1000px; */
+  }
+  
+  @media only screen and (min-width: 767px) {
+    .container {
+      column-count: 4;
+    }
+  }
+  
+  
+  @media only screen and (min-width: 1280px) {
+    .container {
+      column-count: 6;
+    }
+}
+.container img {
+    max-width: 100%;
+  }
