@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exemplo de animação com keyframes ativada por JavaScript</title>
+	<style>
+		.box {
+			width: 50px;
+			height: 50px;
+			background-color: red;
+			animation: pulse 1s ease-in-out infinite;
+		}
+
+		@keyframes pulse {
+			0% {
+				transform: scale(1);
+			}
+			50% {
+				transform: scale(1.2);
+			}
+			100% {
+				transform: scale(1);
+			}
+		}
+	</style>
+	<script>
+		function ativarAnimacao() {
+			var elemento = document.getElementById("box");
+			elemento.style.animationPlayState = "running";
+		}
+
+		function desativarAnimacao() {
+			var elemento = document.getElementById("box");
+			elemento.style.animationPlayState = "paused";
+		}
+	</script>
+</head>
+<body>
+	<button onclick="ativarAnimacao()">Ativar animação</button>
+	<button onclick="desativarAnimacao()">Desativar animação</button>
+	<div class="box" id="box"></div>
+</body>
+</html>
