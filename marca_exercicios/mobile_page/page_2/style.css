@@ -4,7 +4,7 @@
 }
 .body{
     display: flex;
-    height: 115vh;
+    height: 100vh;
     flex-direction: column;
     gap: 2rem;
 }
@@ -100,11 +100,13 @@
 }
 
 .doctors{
-    display: flex;
+    display: inline-flex;
+    overflow: auto;
     flex-direction: column;
     width: calc(100% - 1.5rem);
     gap: 1.2rem;
-    overflow-x: hidden;
+    height: 350px;
+    /* overflow-x: hidden; */
 }
 .card-doctor{
     background-color: rgba(155, 212, 158, 96);

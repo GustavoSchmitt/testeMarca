@@ -21,7 +21,7 @@
                 <div class="search">
                     <label>
                         <i class="fa-sharp fa-solid fa-magnifying-glass"> </i>
-                        <input placeholder="Search here...">
+                        <input id="search" onchange="filtraCards(this)" placeholder="Search here...">
 
                     </label>
                 </div>
@@ -31,48 +31,25 @@
             <div class="categories">
                 <h3>Categories</h3>
                 <div class="carrossel">
-                    <div class="carrossel-card">
+                    <div id="ace" onclick="filtraCards(this)" class="carrossel-card">
                         <img src="./assets/gato.jpg">
                     </div>
-                    <div class="carrossel-card">
+                    <div id="buggy" onclick="filtraCards(this)" class="carrossel-card">
                         <img src="./assets/gato.jpg">
                     </div>
-                    <div class="carrossel-card">
+                    <div id="chopper" onclick="filtraCards(this)" class="carrossel-card">
                         <img src="./assets/gato.jpg">
                     </div>
-                    <div class="carrossel-card">
+                    <div id="doffy" onclick="filtraCards(this)" class="carrossel-card">
                         <img src="./assets/gato.jpg">
                     </div>
-                    <div class="carrossel-card">
-                        <img src="./assets/gato.jpg">
-                    </div>
-                    <div class="carrossel-card">
-                        <img src="./assets/gato.jpg">
-                    </div>
-                    <div class="carrossel-card">
+                    <div id="enel" onclick="filtraCards(this)" class="carrossel-card">
                         <img src="./assets/gato.jpg">
                     </div>
                 </div>
             </div>
             <div class="doctors">
-                <div onclick="active(this)" class="card-doctor">
-                    <div class="doctor-image">
-                        <img src="./assets/vaquinha.jpg">
-                    </div>
-                    <div class="doctor-description">
-                        <p>Dr Brian R. Raghav</p>
-                        <p>Orthodentist</p>
-                    </div>
-                </div>
-                <div onclick="active(this)" class="card-doctor">
-                    <div class="doctor-image">
-                        <img src="./assets/vaquinha.jpg">
-                    </div>
-                    <div class="doctor-description">
-                        <p>Dr Brian R. Raghav</p>
-                        <p>Orthodentist</p>
-                    </div>
-                </div>
+                
             </div>
         </main>
         <footer class="footer">
